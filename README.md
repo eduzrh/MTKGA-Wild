@@ -1,6 +1,6 @@
 # MTKGA-Wild
 
-![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-blue)
+![Version 2.0.0](https://img.shields.io/badge/version-2.0.0-blue)
 [![Language: Python 3](https://img.shields.io/badge/Language-Python3-blue.svg?style=flat-square)](https://www.python.org/)
 [![Made with PyTorch](https://img.shields.io/badge/Made%20with-pytorch-orange.svg?style=flat-square)](https://www.pytorch.org/)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg?style=flat-square)](https://github.com/eduzrh/MTKGA-Wild/issues)
@@ -10,9 +10,6 @@
 🚀 **Welcome to the MTKGA-Wild Repository!** 🎉🎉🎉
 
 This repository contains the source code for the ICDE 2026 submission: ***Taming the Wild Evolution: Aligning Multi-Modal Temporal Knowledge Graphs***.
-
----
-
 
 ---
 
