@@ -13,6 +13,17 @@ This repository contains the source code for the ICDE 2026 submission: ***Taming
 
 ---
 
+
+---
+
+## 📰 **Latest News** 🔥
+
+- **[Nov 14, 2025]** 🎉 Released **v2.0** with enhanced tool integration for improved usability and clearer API design!
+- **[Coming Soon]** 🚧 Working on a plug-and-play toolkit version for seamless integration into existing projects.
+
+---
+
+
 ## 🏠 **Overview** 🔍
 
 **Multi-Modal Temporal Knowledge Graph Alignment in the Wild (MTKGA-Wild)** represents a **new and important research task** that addresses a critical challenge in **knowledge graph integration**.💡
