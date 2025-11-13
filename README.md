@@ -139,7 +139,7 @@ Get started with **EvoWildAlign** in minutes! ⏱️
 2. **Prepare Datasets**
 
    ```bash
-   # Download and extract datasets to ./datasets/
+   # Download and extract datasets to ./data/
    ```
 
 3. **Run the Main Experiment**
