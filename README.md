@@ -121,7 +121,10 @@ Take the dataset icews\_wiki (HHEA) as an example, the folder "data/icews\_wiki"
 * time\_id: time ids in the source KG and the target KG;
 * ref\_ent\_ids: all aligned entity pairs, list of pairs like (e\_s \t e\_t);
 
-For our newly proposed task, we introduce two novel benchmark datasets: **WildMTKGA(W-I)** 🌐 and **WildMTKGA(Y-I)** 🗺️. Download link: xxx
+For our newly proposed task, we introduce two novel benchmark datasets: **WildMTKGA(W-I)** 🌐 and **WildMTKGA(Y-I)** 🗺️. 
+
+[Download link](https://pan.baidu.com/s/12RSVKPTBCdaNXJrI2mLxWA?pwd=64rk](https://pan.baidu.com/s/1Q8UMCe8NRkg-K95wXqja0Q?pwd=kr5m)  
+(Baidu Netdisk, Extraction Code: kr5m) 
 
 ---
 
