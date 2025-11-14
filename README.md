@@ -108,7 +108,7 @@ Compatible with **Python 3**. 🚀
 
 ## ✨ Datasets
 
-The datasets are from [Dual-AMN](https://github.com/MaoXinn/Dual-AMN), [JAPE](https://github.com/nju-websoft/JAPE), [GCN-Align](https://github.com/1049451037/GCN-Align), [Simple-HHEA](https://github.com/IDEA-FinAI/Simple-HHEA) and [BETA](https://github.com/DexterZeng/BETA).
+The datasets are from [Dual-AMN](https://github.com/MaoXinn/Dual-AMN), [JAPE](https://github.com/nju-websoft/JAPE), [GCN-Align](https://github.com/1049451037/GCN-Align), [Simple-HHEA](https://github.com/IDEA-FinAI/Simple-HHEA), [MMKG](https://github.com/mniepert/mmkb) and [BETA](https://github.com/DexterZeng/BETA).
 
 Take the dataset icews\_wiki (HHEA) as an example, the folder "data/icews\_wiki" contains:
 
