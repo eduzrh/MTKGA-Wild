@@ -15,7 +15,7 @@ This repository contains the source code for the ICDE 2026 submission: ***Taming
 
 ## 📰 **Latest News** 🔥
 
-- **[Nov 23, 2025]** 🎉 Datasets now available on **Google Drive** for global accessibility! We've also released a **demo video** to enhance usability!
+- **[Nov 23, 2025]** 🌍 For improved global accessibility, we have uploaded our newly proposed datasets to **Google Drive** in addition to the existing Baidu Netdisk option! We have also created a **demo video** to enhance usability and demonstrate the framework in action! 🎬
 - **[Nov 14, 2025]** 🎉 Released **v2.0** with enhanced tool integration for improved usability and clearer API design!
 - **[Coming Soon]** 🚧 Working on a plug-and-play toolkit version for seamless integration into existing projects.
 
