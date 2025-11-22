@@ -9,6 +9,116 @@ import multiprocessing as mp
 from functools import partial
 import numpy as np
 
+def preprocess_entity_ids(data_dir, dataset_name):
+
+    if dataset_name not in ["MTKGA_W_I", "MTKGA_Y_I"]:
+        print(f"Dataset {dataset_name} does not require entity ID preprocessing.")
+        return
+
+    print(f"\n{'=' * 80}")
+    print(f"Preprocessing Entity IDs for {dataset_name}")
+    print(f"{'=' * 80}\n")
+
+
+    txt_link_trans_1 = os.path.join(data_dir, "txt_link_trans_1")
+    txt_link_trans_2 = os.path.join(data_dir, "txt_link_trans_2")
+    ent_ids_1_path = os.path.join(data_dir, "ent_ids_1")
+    ent_ids_2_path = os.path.join(data_dir, "ent_ids_2")
+
+
+    for txt_link_file, ent_ids_file, source_num in [
+        (txt_link_trans_1, ent_ids_1_path, "1"),
+        (txt_link_trans_2, ent_ids_2_path, "2")
+    ]:
+        print(f"Processing source {source_num}...")
+
+
+        if not os.path.exists(txt_link_file):
+            print(f"  Warning: {txt_link_file} not found, skipping source {source_num}")
+            continue
+
+        if not os.path.exists(ent_ids_file):
+            print(f"  Warning: {ent_ids_file} not found, skipping source {source_num}")
+            continue
+
+
+        core_info_map = {}  # {entity_id: core_info}
+
+        with open(txt_link_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+
+                parts = line.split('\t')
+                if len(parts) < 2:
+                    continue
+
+                entity_id = parts[0]
+                text_info = parts[1] if len(parts) > 1 else ""
+
+
+                if text_info:
+                    pos_en = text_info.find(';')
+                    pos_cn = text_info.find('；')
+
+
+                    if pos_en != -1 and pos_cn != -1:
+                        split_pos = min(pos_en, pos_cn)
+                    elif pos_en != -1:
+                        split_pos = pos_en
+                    elif pos_cn != -1:
+                        split_pos = pos_cn
+                    else:
+                        split_pos = -1
+
+                    if split_pos != -1:
+                        core_info = text_info[:split_pos].strip()
+                    else:
+                        core_info = text_info.strip()
+
+                    if core_info:
+                        core_info_map[entity_id] = core_info
+
+        print(f"  Extracted {len(core_info_map)} non-empty core info entries from txt_link_trans_{source_num}")
+
+        updated_lines = []
+        update_count = 0
+
+        with open(ent_ids_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    updated_lines.append(line)
+                    continue
+
+                parts = line.split('\t')
+                if len(parts) < 2:
+                    updated_lines.append(line)
+                    continue
+
+                entity_id = parts[0]
+
+
+                if entity_id in core_info_map:
+                    updated_line = f"{entity_id}\t{core_info_map[entity_id]}"
+                    updated_lines.append(updated_line)
+                    update_count += 1
+                else:
+
+                    updated_lines.append(line)
+
+
+        with open(ent_ids_file, 'w', encoding='utf-8') as f:
+            for line in updated_lines:
+                f.write(line + '\n')
+
+        print(f"  Updated {update_count} entries in ent_ids_{source_num}")
+        print(f"  ✓ Saved updated file to {ent_ids_file}\n")
+
+    print(f"{'=' * 80}")
+    print(f"Entity ID Preprocessing Complete")
+    print(f"{'=' * 80}\n")
 
 def load_ents(path):
     """
@@ -229,5 +339,5 @@ def neural_retrieval(data_dir):
 
 
 if __name__ == "__main__":
-    data_dir = "/home/dex/Desktop/entity_sy/MTKGA-Wild/data/icews_yago/"
+    data_dir = "/home/dex/Desktop/entity_sy/AdaCoAgent_backup/data/icews_yago/"
     neural_retrieval(data_dir)

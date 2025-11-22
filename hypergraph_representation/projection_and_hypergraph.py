@@ -80,7 +80,7 @@ class AdaptiveEvolutionProjection:
     def _load_modality_attributes(self):
         """Load modality attributes"""
         modalities = {
-            'text_H': ('ent_ids_1', 'ent_ids_2'),
+            'text_H': ('txt_link_trans_1', 'txt_link_trans_2'),
             'image_H': ('image_link_trans_1', 'image_link_trans_2'),
             'audio_H': ('audio_link_trans_1', 'audio_link_trans_2'),
             'video_H': ('video_link_trans_1', 'video_link_trans_2')
@@ -358,11 +358,10 @@ def get_hypergraph_statistics(self, output_dir: str) -> Dict:
             }
     return stats
 
-# ===== 使用示例 =====
 if __name__ == "__main__":
     # Configure paths
-    DATA_DIR = "/home/dex/Desktop/entity_sy/MTKGA-Wild/data/icews_wiki"          # Input data directory
-    OUTPUT_DIR = "/home/dex/Desktop/entity_sy/MTKGA-Wild/data/icews_wiki/message_pool"  # Output directory
+    DATA_DIR = "/home/dex/Desktop/entity_sy/AdaCoAgent_backup/data/icews_wiki"          # Input data directory
+    OUTPUT_DIR = "/home/dex/Desktop/entity_sy/AdaCoAgent_backup/data/icews_wiki/message_pool"  # Output directory
 
     # Create processor instance
     processor = AdaptiveEvolutionProjection(DATA_DIR, OUTPUT_DIR)
