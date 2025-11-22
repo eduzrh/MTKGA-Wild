@@ -173,22 +173,33 @@ Get started with **EvoWildAlign** in minutes! ⏱️
 
 ### **Ablation Options**
 
-* `--wo-neuro-symbolic`: Removes neuro-symbolic evolution hypergraph representation
-* `--wo-agentic-collaboration`: Omits on-demand agentic hypergraph collaboration
-* `--wo-adaptive-decoupling`: Disables adaptive evolution projection
-* `--wo-core-block-selection`: Removes meta-agent core block selection
-* `--wo-collaboration-decision`: Skips collaboration decision-making
+* `--wo-neural-retrieval`: Removes neural retrieval component
+* `--wo-adaptive-decoupling`: Disables adaptive symbolic decoupling
+* `--wo-evolution-hypergraph`: Removes evolution hypergraph construction
+* `--wo-core-block-selection`: Disables core block selection
+* `--wo-collaborative-decision`: Skips collaborative decision-making
+* `--wo-agentic-execution`: Removes agentic hypergraph execution
 * `--wo-meta-evaluation`: Disables meta evaluation feedback
+* `--wo-stage1`: Removes entire Stage 1 (Neuro-symbolic Evolution Hypergraph Representation)
+* `--wo-stage2`: Removes entire Stage 2 (On-demand Agentic Hypergraph Collaboration)
+
 
 **Example**:
 
 ```bash
-# Remove neuro-symbolic evolution hypergraph representation
-python main.py --dataset W-I --wo-neuro-symbolic
+# Remove neural retrieval component
+python main.py --data MTKGA_W_I --ablation w/o_neural_retrieval
 
-# Remove on-demand agentic hypergraph collaboration
-python main.py --dataset Y-I --wo-agentic-collaboration
+# Remove adaptive decoupling
+python main.py --data MTKGA_Y_I --ablation w/o_adaptive_decoupling
+
+# Remove entire Stage 1
+python main.py --data MTKGA_W_I --ablation w/o_stage1
+
+# Remove entire Stage 2
+python main.py --data MTKGA_Y_I --ablation w/o_stage2
 ```
+
 
 **Workflow Overview**:
 
