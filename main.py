@@ -6,7 +6,7 @@ import argparse
 from collections import defaultdict
 
 
-from hypergraph_representation.neural_retrieval import neural_retrieval
+from hypergraph_representation.neural_retrieval import neural_retrieval,preprocess_entity_ids
 from hypergraph_representation.projection_and_hypergraph import AdaptiveEvolutionProjection, merge_batch_files
 from on_demand_agentic_hypergraph_collaboration.core_selector import CoreModuleSelector
 from on_demand_agentic_hypergraph_collaboration.collaborative_decision import CollaborativeDecision
@@ -265,11 +265,11 @@ def run_full_process_with_ablation(data_dir, ablation_config):
     print(f"{'#' * 100}\n")
 
     # Stage 1:
-    # hypergraph_representation(data_dir, ablation_config)
+    hypergraph_representation(data_dir, ablation_config)
     print("-" * 80)
 
     # Stage 2:
-    max_iterations = 3
+    max_iterations = 5
     current_iteration = 0
     should_continue = True
 
@@ -354,6 +354,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     data_dir = os.path.join("/home/dex/Desktop/entity_sy/AdaCoAgent_backup/data", args.data)
+
+    preprocess_entity_ids(data_dir, args.data)
 
     if args.ablation is None or args.ablation == 'full':
         #Run full model
